@@ -33,13 +33,13 @@
   border-right: solid 2px #bdbdbd;
 }
 
-#wrapper div:nth-child(9n) {
-  border-right: none;
-}
-
 #wrapper div[data-array="2"],
 #wrapper div[data-array="5"] {
   border-bottom: solid 2px #bdbdbd;
+}
+
+#wrapper div:nth-child(9n) {
+  border-right: none;
 }
 
 .duplicate {
