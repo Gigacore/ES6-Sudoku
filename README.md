@@ -1,7 +1,7 @@
 # Sudoku
 An implementation of Sudoku in ES6
 
-#TODOs
+### TODOs
  
 - [ ] Utilize [immutable update patterns](https://github.com/reactjs/redux/blob/master/docs/recipes/reducers/ImmutableUpdatePatterns.md). 
 - [ ] Make max use of Functional over Procedural/Imperative programming techiques.
