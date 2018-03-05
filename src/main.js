@@ -1,13 +1,13 @@
 const matrix = [
-  [5,3,null,null,7,null,null,null,null],
-  [6,null,null,1,9,5,null,null,null],
-  [1,9,8,null,null,null,null,6,null],
-  [8,null,null,null,6,null,null,null,3],
-  [4,null,null,8,null,3,null,null,1],
-  [7,null,null,null,2,null,null,null,6],
-  [null,6,null,null,null,null,2,8,null],
-  [null,null,null,4,1,9,null,null,5],
-  [null,null,null,null,8,null,null,7,9]
+  [5,3,0,0,7,0,0,0,0],
+  [6,0,0,1,9,5,0,0,0],
+  [1,9,8,0,0,0,0,6,0],
+  [8,0,0,0,6,0,0,0,3],
+  [4,0,0,8,0,3,0,0,1],
+  [7,0,0,0,2,0,0,0,6],
+  [0,6,0,0,0,0,2,8,0],
+  [0,0,0,4,1,9,0,0,5],
+  [0,0,0,0,8,0,0,7,9]
 ];
 
 const matrixLength = 3;
@@ -82,9 +82,10 @@ const getGrid = (index, array, value, e) => {
 
   const isDuplicate = checkForDuplicates(mergeAndFilterArrays(), value, e);
   
+  // replace with immutablity 
   matrix[array][index] = value;
 
-  const isFinished = matrix.reduce((acc, cur) => acc.concat(cur), []).filter(value => value !== null).length;
+  const isFinished = matrix.reduce((acc, cur) => acc.concat(cur), []).filter(value => value !== 0).length;
 
   if(isFinished >= 80) {
     if(isFinished === 81 && !isDuplicate) {
@@ -113,8 +114,8 @@ const renderPuzzle = () => {
   matrix.forEach((arr, i) => {
     arr.forEach((row, j) => {
       wrapper.innerHTML += 
-      `<div data-array=${i} class="${row !== null ? 'disabled' : ''}">
-        <input data-array=${i} data-index=${j} maxlength="1" type="tel" pattern="[1-9]*" value="${row !== null ? row : ''}" onKeyUp="_getCurrentIndex(this)"/>
+      `<div data-array=${i} class="${row !== 0 ? 'disabled' : ''}">
+        <input data-array=${i} data-index=${j} maxlength="1" type="tel" pattern="[1-9]*" value="${row !== 0 ? row : ''}" onKeyUp="_getCurrentIndex(this)"/>
       </div>`;
     });
   });
