@@ -10,18 +10,6 @@ const matrix = [
   [null,null,null,null,8,null,null,7,9]
 ];
 
-// const matrix = [
-//   [2,9,5,7,4,3,8,6,1],
-//   [4,3,1,8,6,5,9,2,7],
-//   [8,7,6,1,9,2,5,4,3],
-//   [3,8,7,4,5,9,2,1,6],
-//   [6,1,2,3,8,7,4,9,5],
-//   [5,4,9,2,1,6,7,3,8],
-//   [7,6,3,5,3,4,1,8,9],
-//   [9,2,8,6,7,1,3,5,4],
-//   [1,5,4,9,3,8,6,7,null]
-// ];
-
 const matrixLength = 3;
 
 const generateCellData = (index, matrixLength) => {
@@ -90,9 +78,8 @@ const getGrid = (index, array, value, e) => {
   }
 
   const mergeAndFilterArrays = () => [...new Set([...matrix[array], ...gatherColumnItems(), ...gatherBlockItems()])];
-  
   checkForDuplicates(mergeAndFilterArrays(), value, e);
-  
+
   const isDuplicate = checkForDuplicates(mergeAndFilterArrays(), value, e);
   
   matrix[array][index] = value;
@@ -116,15 +103,13 @@ const _getCurrentIndex = (e) => {
   const array = parseInt(e.getAttribute("data-array"), 10);
   let value = '';
   
-  setTimeout(() => {
-    value = parseInt(e.value, 10);
-    getGrid(index, array, value, e);
-  });
+  value = parseInt(e.value, 10);
+  getGrid(index, array, value, e);
 };
 
-const wrapper = document.getElementById("wrapper");
-
 const renderPuzzle = () => {
+  const wrapper = document.getElementById("wrapper");
+  
   matrix.forEach((arr, i) => {
     arr.forEach((row, j) => {
       wrapper.innerHTML += 
