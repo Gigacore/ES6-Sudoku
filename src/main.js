@@ -109,7 +109,7 @@ const _getCurrentIndex = (e) => {
 
 const renderPuzzle = () => {
   const wrapper = document.getElementById("wrapper");
-  
+
   matrix.forEach((arr, i) => {
     arr.forEach((row, j) => {
       wrapper.innerHTML += 
